@@ -6,7 +6,7 @@
     "dependencies":
     {
         "express":          ">= 3.0.0rc5",
-        "poet" :            "1.0.0rc3",
+        "poet" :            "git://github.com/mfrobben/poet-mongo.git",
         "connect":          "2.10.1",
         "passport":			"0.1.17",
         "passport-http":    "0.2.1",
