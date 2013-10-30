@@ -1,0 +1,40 @@
+#posts-list-container h4{
+    padding-left: 10px;
+}
+
+#posts-list-header{
+    margin: 0px 10px 0px 10px;
+    padding: 5px ;
+}
+
+.post-row {
+    border-top: 1px solid black;
+    margin: 0px 10px 0px 10px;
+    padding: 5px ;
+    word-wrap: break-word;
+}
+
+.create-modal{
+    color: black;
+    font-size: 16px;
+    font-family: Consolas;
+}
+
+.edit-modal{
+    color: black;
+    font-size: 16px;
+    font-family: Consolas;
+}
+
+.delete-modal{
+    color: black;
+    font-size: 16px;
+    font-family: Consolas;
+}
+
+#add-post-container{
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+}
+

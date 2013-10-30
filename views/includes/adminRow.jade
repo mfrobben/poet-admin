@@ -1,0 +1,12 @@
+div.post-row.row-fluid
+    div.date.span2
+        span #{post.date.getMonth()+1}.#{post.date.getDate()}.#{post.date.getFullYear()}
+    div.category.span2
+        = post.category
+    div.post_title.span4
+        = post.title
+    div.tags.span3
+        = post.tags
+    div.actions.span1
+        button(href="#editModal", type="button", class="btn btn-small btn-warning edit-post", data-id=post.slug, data-toggle="modal") Edit
+        button(href="#deleteModal", type="button", class="btn btn-small btn-danger delete-post", data-id=post.slug, data-toggle="modal") X

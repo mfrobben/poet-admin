@@ -1,0 +1,38 @@
+!!!
+html
+    head
+        title= 'Poet Admin'
+        meta(charset='utf-8')
+        link(rel='stylesheet', href="/css/admin.css")
+        link(href="/js/vendor/bootstrap/css/bootstrap-responsive.css", rel="stylesheet")
+        link(rel='stylesheet', id="bootstrap-style", href="/js/vendor/bootstrap/css/bootstrap.css")
+        script(src="/js/vendor/require.js", data-main="/js/admin.js")
+    body
+        div#add-post-container
+            button(href="#createModal", type="button", class="btn btn-small btn-success", data-toggle="modal")  Create a new post!
+        div#posts-list-container
+            h4 Existing Posts:
+            div#posts-list-header.row-fluid
+                div.span2.date-header
+                    i.icon-calendar
+                    |  Date
+                div.span2.category-header
+                    i.icon-list
+                    |  Category
+                div.span4.title-header
+                    i.icon-text-height
+                    |  Title
+                div.span3.tags-header
+                    i.icon-tag
+                    |  Tags
+                div.span1.actions-header
+                    i.icon-remove
+                    |  Actions
+            div#posts-list.row-fluid
+                - var posts = getPosts(0,1000)
+                - var page  = 1
+                - each post in posts
+                    include includes/adminRow
+        include includes/addModal
+        include includes/editModal
+        include includes/deleteModal

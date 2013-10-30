@@ -1,0 +1,25 @@
+div#editModal.edit-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-hidden="true")
+    div.modal-header
+        button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+        h4.editModalLabel Edit post
+    div.modal-body
+        form.form-horizontal#createForm
+            div.control-group
+                label.control-label(for="inputEditCategory") Category
+                div.controls
+                    input.input-xlarge(type="text", id="inputEditCategory", placeholder="Category")
+            div.control-group
+                label.control-label(for="inputEditTags") Tags
+                div.controls
+                    input.input-xlarge(type="text", id="inputEditTags", placeholder="Tags")
+            div.control-group
+                label.control-label(for="inputEditTitle") Title
+                div.controls
+                    input.input-xlarge(type="text", id="inputEditTitle", placeholder="Title")
+            div.control-group
+                label.control-label(for="inputEditBody") Body
+                div.controls
+                    textarea(rows="20", id="inputEditBody", placeholder="Body")
+    div.modal-footer
+        button.btn(data-dismiss="modal", aria-hidden="true") Close
+        button.btn.btn-primary.btn-edit-post(data-dismiss='modal', data-id='') Edit

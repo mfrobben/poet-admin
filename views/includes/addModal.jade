@@ -1,0 +1,26 @@
+div#createModal.create-modal.modal.hide.fade(tabindex="-1" ,role="dialog", aria-hidden="true")
+    div#modal-header
+        button.close(type="button", data-dismiss="modal", aria-hidden="true") ×
+        h4.createModalLabel Create a new post
+    div.modal-body
+        form.form-horizontal#createForm
+            div.control-group
+                label.control-label(for="inputCategory") Category
+                div.controls
+                    input.input-xlarge(type="text", id="inputCategory", placeholder="Category")
+            div.control-group
+                label.control-label(for="inputTags") Tags
+                div.controls
+                    input.input-xlarge(type="text", id="inputTags", placeholder="Tags")
+            div.control-group
+                label.control-label(for="inputTitle") Title
+                div.controls
+                    input.input-xlarge(type="text", id="inputTitle", placeholder="Title")
+            div.control-group
+                label.control-label(for="inputBody") Body
+                div.controls
+                    textarea(rows="20", id="inputBody", placeholder="Body")
+    div.modal-footer
+        button.btn(onClick="$('#createForm')[0].reset();") Reset Form
+        button.btn(data-dismiss="modal", aria-hidden="true") Close
+        button.btn.btn-primary.btn-create-post(data-dismiss='modal') Save changes
