@@ -25,8 +25,24 @@ require(['jquery', 'bootstrap'], function($, Mustache, template) {
 
     $('.edit-post').click(function(e){
         var id = $(this).attr('data-id')
-        $('.editModalLabel').html('You are editing ' + id + '.md')
-        $('.btn-edit-post').attr('data-id', id)
+        $.ajax({
+            type: "GET",
+            url: "/admin/post/" + id,
+            dataType: "json",
+            success: function(data, textStatus, jqXHR) {
+                $('#inputEditCategory').val(data.category)
+                $('#inputEditTitle').val(data.title)
+                $('#inputEditTags').val(data.tags)
+                $('#inputEditBody').val(data.raw)
+                $('#inputEditFilename').val(id)
+                $('.editModalLabel').html('You are editing ' + id + '.md')
+                $('.btn-edit-post').attr('data-id', id)
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.log(jqXHR.responseText);
+            }
+        });
+
     })
 
     $('.delete-post').click(function(e){
@@ -48,17 +64,17 @@ require(['jquery', 'bootstrap'], function($, Mustache, template) {
         // will create a modal edit window with a save button
         $.ajax({
             type: "POST",
-            url: "/admin/post/",
+            url: "/admin/post",
             dataType: "json",
             data: {
                 category : $('#inputCategory').val(),
                 tags : $('#inputTags').val(),
                 title : $('#inputTitle').val(),
                 body : $('#inputBody').val(),
-                type: 'markdown',
+                filename: $('#inputFilename').val()
             },
             success: function(data, textStatus, jqXHR) {
-                alert('create successful.')
+                window.location.reload()
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR.responseText);
@@ -78,10 +94,10 @@ require(['jquery', 'bootstrap'], function($, Mustache, template) {
                 title : $('#inputEditTitle').val(),
                 tags: $('#inputEditTags').val(),
                 body: $('#inputEditBody').val(),
-                type: 'markdown'
+                filename: $('#inputEditFilename').val()
             },
             success: function(data, textStatus, jqXHR) {
-                alert('edit successful.')
+                window.location.reload()
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR.responseText);
@@ -97,7 +113,7 @@ require(['jquery', 'bootstrap'], function($, Mustache, template) {
             type: "DELETE",
             url: "/admin/post/" + id,
             success: function(data, textStatus, jqXHR) {
-                alert('delete successful.')
+                window.location.reload()
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR.responseText);

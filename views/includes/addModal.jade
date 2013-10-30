@@ -5,6 +5,10 @@ div#createModal.create-modal.modal.hide.fade(tabindex="-1" ,role="dialog", aria-
     div.modal-body
         form.form-horizontal#createForm
             div.control-group
+                label.control-label(for="inputFilename") Filename
+                div.controls
+                    input.input-xlarge(id="inputFilename", placeholder="Filename")
+            div.control-group
                 label.control-label(for="inputCategory") Category
                 div.controls
                     input.input-xlarge(type="text", id="inputCategory", placeholder="Category")

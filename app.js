@@ -78,14 +78,16 @@ app.configure('all', function() {
 
         app.get('/admin', adminRoutes.renderAdmin)
         app.post('/admin/post', adminRoutes.createPost)
+        app.get('/admin/post/:postId', adminRoutes.getPost)
         app.delete('/admin/post/:postId', adminRoutes.deletePost)
         app.put('/admin/post/:postId', adminRoutes.updatePost)
 
         app.param('postId', function(req, res, next, id) {
-            if (!getPost(id))
-                return res.send(404)
+            if (!poet.helpers || !poet.helpers.getPost || !poet.helpers.getPost(id))
+                return res.send(404, "No post with that id exists.")
 
             req.slug = id
+            req.post = poet.helpers.getPost(id)
             next()
         })
 

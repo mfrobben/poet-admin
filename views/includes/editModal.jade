@@ -5,6 +5,10 @@ div#editModal.edit-modal.modal.hide.fade(tabindex="-1", role="dialog", aria-hidd
     div.modal-body
         form.form-horizontal#createForm
             div.control-group
+                label.control-label(for="inputEditFilename") Filename
+                div.controls
+                    input.input-xlarge(id="inputEditFilename", placeholder="Filename")
+            div.control-group
                 label.control-label(for="inputEditCategory") Category
                 div.controls
                     input.input-xlarge(type="text", id="inputEditCategory", placeholder="Category")
